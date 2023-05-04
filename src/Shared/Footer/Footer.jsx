@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-md-6 mt-md-0 mt-3">
                             <h5  style={{"color": "#146C94"}}  className="fs-2 text fw-bold ">The Italian Dishes</h5>
-                            <p>Here you can use rows and columns to organize your footer content.</p>
+                            <p>Delicious Foods By Worlds Best Chefs.</p>
                         </div>
 
                         <hr className="clearfix w-100 d-md-none pb-0" />
@@ -18,8 +18,8 @@ const Footer = () => {
                         <div className="col-md-3 mb-md-0 mb-3">
                             <h5 className="text-uppercase">Useful Links</h5>
                             <ul className="list-unstyled">
-                                <li><Link to="/">Home</Link></li>
-                                <li><Link to="/blog">Blog</Link></li>
+                                <li><Link to="/">HOME</Link></li>
+                                <li><Link to="/blog">BLOG</Link></li>
                                 
                             </ul>
                         </div>
@@ -27,8 +27,8 @@ const Footer = () => {
                         <div className="col-md-3 mb-md-0 mb-3">
                             <h5 className="text-uppercase">Important Links</h5>
                             <ul className="list-unstyled">
-                                <li><a href="#!">Home</a></li>
-                                <li><a href="#!">Blog</a></li>
+                                <li ><Link to="">LOGIN</Link></li>
+                                <li><Link to="/register">SIGN UP</Link></li>
                                 
                             </ul>
                         </div>
