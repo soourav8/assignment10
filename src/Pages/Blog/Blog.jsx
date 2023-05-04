@@ -1,13 +1,10 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import TopNav from '../../Shared/TopNav/TopNav';
 
 const Blog = () => {
     return (
         <div>
-            <Container>
-
-            <h2>This is from blog</h2>
-            </Container>
+           
         </div>
     );
 };

@@ -1,12 +1,15 @@
 import React from 'react';
 
 import TopNav from '../TopNav/TopNav';
+import Slider from '../../Pages/Home/Slider/Slider';
 
 
 const Header = () => {
     return (
         <div >
-           <TopNav></TopNav> 
+            
+            <Slider></Slider>
+            
         </div>
     );
 };

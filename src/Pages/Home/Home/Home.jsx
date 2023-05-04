@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Cards from '../Cards/Cards';
+import Header from '../../../Shared/Header/Header';
+
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { FcLike } from "react-icons/fc";
+
 
 const Home = () => {
     const [chefs, setChefs] = useState([])
@@ -14,15 +16,21 @@ const Home = () => {
     }, [])
 
     const gridItems = chefs.map(chef => (
-        <Col lg={4} sm={12} key={chef.id}>
+        <Col className='mt-5 mb-5' lg={4} sm={12} key={chef.id}>
             <Card className='m-2' style={{ width: '26rem' }}>
                 <Card.Img style={{with:"25rem", height:"25rem"}} variant="top" src={chef.picture} />
                 <Card.Body>
                     <Card.Title>{chef.name}</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and 
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Card.Subtitle className="mb-2 text-muted">Years of experience: {chef.years_of_experience}+ </Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted">Numbers of recipes:  {chef.num_recipes}+ </Card.Subtitle>
+                    <div className='d-flex align-items-center '>
+
+                        <div className='flex-grow-1'>
+                            <p>{chef.likes}<FcLike /></p>
+                        </div>
+
+                    <Button  variant="primary">View Recipes</Button>
+                    </div>
                 </Card.Body>
             </Card>
         </Col>
@@ -31,7 +39,10 @@ const Home = () => {
 
     return (
         <div>
+            <Header></Header>
+
             <Container>
+
                 <Row>
                     {gridItems}
                 </Row>
