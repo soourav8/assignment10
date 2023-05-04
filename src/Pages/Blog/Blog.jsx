@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import QNA from '../../Components/QNA';
 
 
 
@@ -6,10 +7,10 @@ import React, { useContext } from 'react';
 
 
 const Blog = () => {
-    const {user}= useContext(AuthContext)
+   
     return (
         <div>
-           
+           <QNA></QNA>
            
         </div>
     );
