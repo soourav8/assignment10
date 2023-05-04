@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import Register from '../Register/Register';
+
+
+
 
 
 const Blog = () => {
+    const {user}= useContext(AuthContext)
     return (
         <div>
-           <Register></Register>
+           
+           
         </div>
     );
 };

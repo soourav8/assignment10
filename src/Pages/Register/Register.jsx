@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Register = () => {
     const [error, setError] = useState("")
+
+    const {createUser} = useContext(AuthContext)
 
 
     const handleRegister = (event) => {
@@ -11,13 +14,31 @@ const Register = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const confirm = form.confirm-password.value;
-        console.log(email, password)
+        const confirm = form.confirmPassword.value;
+        const photo = form.photo.value;
+        console.log(email, password, confirm)
+
+        setError('')
 
         if(password !== confirm){
             setError('Your password did not match')
+            return;
 
         }
+        else if(password.length < 6){
+            setError('Password must be minimum six characters')
+        }
+
+        createUser(email,password)
+        .then((result) =>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            
+        })
+        .catch((error) =>{
+            console.log(error);
+            setError(error.message);
+        })
 
 
 
@@ -37,6 +58,15 @@ const Register = () => {
                         className="form-control"
                         placeholder="Name"
 
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label>Photo Url</label>
+                    <input
+                        type="text" name="photo"
+                        className="form-control"
+                        placeholder="Enter url"
                     />
                 </div>
 
@@ -64,11 +94,12 @@ const Register = () => {
                 <div className="mb-3">
                     <label>Confirm Password</label>
                     <input
-                        type="password" name="confirm-password"
+                        type="password" name="confirmPassword"
                         className="form-control"
                         placeholder="Enter password"
                     />
                 </div>
+                
                 <div className="d-grid">
                     <button type="submit" className="btn btn-primary">
                         Sign Up
@@ -77,6 +108,7 @@ const Register = () => {
                 <p className="forgot-password text-right">
                     Already registered <Link to="/login">sign in?</Link>
                 </p>
+            <p className='text-danger'>{error}</p>
             </Form>
         </Container>
     );
