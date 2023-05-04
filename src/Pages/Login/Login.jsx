@@ -2,14 +2,27 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 const Login = () => {
-    return (
-        <Container >
-           <form style={{width: "20rem", margin: "5rem auto"}}>
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password)
+  }
+
+
+
+
+
+  return (
+    <Container >
+      <form onSubmit={handleLogin} style={{ width: "20rem", margin: "5rem auto" }}>
         <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
-            type="email"
+            type="email" name="email"
             className="form-control"
             placeholder="Enter email"
           />
@@ -17,7 +30,7 @@ const Login = () => {
         <div className="mb-3">
           <label>Password</label>
           <input
-            type="password"
+            type="password" name="password"
             className="form-control"
             placeholder="Enter password"
           />
@@ -43,8 +56,8 @@ const Login = () => {
           Forgot <a href="#">password?</a>
         </p>
       </form>
-        </Container>
-    );
+    </Container>
+  );
 };
 
 export default Login;
