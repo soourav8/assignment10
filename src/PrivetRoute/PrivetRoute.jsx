@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
 
 const PrivetRoute = () => {
-    const { user } = useContext(AuthContext);
+    const {user} = useContext(AuthContext)
     const location = useLocation();
-    if (user) {
-        return children;
-      }
-    
+    if(user){
+        return Children;
+    }
+
     return (
         <div>
             <Navigate to="/login" replace></Navigate>;
