@@ -1,16 +1,20 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const {picture} = {chef};
 
-const Cards = () => {
+
+
+
+
+const Cards = ({chef}) => {
     return (
-        <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+        <Container>
+            <Card style={{ width: '18rem',  }} >
+                <Card.Img variant="top"  src={chef.picture} />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    <Card.Title>Title</Card.Title>
                     <Card.Text>
                         Some quick example text to build on the card title and make up the
                         bulk of the card's content.
@@ -27,7 +31,7 @@ const Cards = () => {
                 </Card.Body>
             </Card>
 
-        </div>
+        </Container>
     );
 };
 
