@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div>
+        <Container style={{backgroundColor: "#B0DAFF", marginTop: "8rem"}}>
             <footer className="page-footer font-small blue mt-5 pt-4">
                 <div className="container-fluid text-center text-md-left">
                     <div className="row">
@@ -40,7 +40,7 @@ const Footer = () => {
                 </div>
 
             </footer>
-        </div>
+        </Container>
     );
 };
 

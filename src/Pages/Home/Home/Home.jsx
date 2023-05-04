@@ -5,6 +5,8 @@ import Header from '../../../Shared/Header/Header';
 
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FcLike } from "react-icons/fc";
+import OurServices from '../OurServiecs/OurServices';
+import NewFood from '../NewFood/NewFood';
 
 
 const Home = () => {
@@ -16,7 +18,7 @@ const Home = () => {
     }, [])
 
     const gridItems = chefs.map(chef => (
-        <Col className='mt-5 mb-5' lg={4} sm={12} key={chef.id}>
+        <Col className=' mb-5' lg={4} sm={12} key={chef.id}>
             <Card className='m-2' style={{ width: '26rem' }}>
                 <Card.Img style={{with:"25rem", height:"25rem"}} variant="top" src={chef.picture} />
                 <Card.Body>
@@ -41,12 +43,20 @@ const Home = () => {
         <div>
             <Header></Header>
 
+            <OurServices></OurServices>
+
             <Container>
+                
+
+                
 
                 <Row>
+                    <h2 style={{color: "#146C94", fontWeight: "700", textAlign :"center", marginTop: '5rem', marginBottom: "1rem"}} >Our chefs</h2>
                     {gridItems}
                 </Row>
             </Container>
+            
+            <NewFood></NewFood>
 
 
         </div>
