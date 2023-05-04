@@ -1,12 +1,12 @@
 import React from 'react';
-import TopNav from '../../Shared/TopNav/TopNav';
-import NewFood from '../Home/NewFood/NewFood';
+
+import Register from '../Register/Register';
 
 
 const Blog = () => {
     return (
         <div>
-           <NewFood></NewFood>
+           <Register></Register>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -8,6 +9,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    const confirm = form.confirm-password.value;
     console.log(email, password)
   }
 
@@ -17,8 +19,8 @@ const Login = () => {
 
   return (
     <Container >
-      <form onSubmit={handleLogin} style={{ width: "20rem", margin: "5rem auto" }}>
-        <h3>Sign In</h3>
+      <Form onSubmit={handleLogin} style={{ width: "20rem", margin: "4rem auto" }}>
+        <h3>LogIn</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
@@ -35,6 +37,7 @@ const Login = () => {
             placeholder="Enter password"
           />
         </div>
+        
         <div className="mb-3">
           <div className="custom-control custom-checkbox">
             <input
@@ -53,9 +56,9 @@ const Login = () => {
           </button>
         </div>
         <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
+        New here? Please <Link to="/register">  Register</Link>
         </p>
-      </form>
+      </Form>
     </Container>
   );
 };
