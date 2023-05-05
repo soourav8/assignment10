@@ -21,6 +21,8 @@ const TopNav = () => {
       .catch((error) => {
         console.log(error)
       })
+
+      alert('Logout successful')
   }
 
 

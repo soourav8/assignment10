@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
-  const {signIn, loginGoogle} = useContext(AuthContext)
+  const {signIn, loginGoogle, loginGit, user} = useContext(AuthContext)
   const [success, setSuccess] = useState();
-
+   
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -34,15 +34,28 @@ const Login = () => {
     .then((result)=>{
       const loggedUser  = result.user;
       console.log(loggedUser)
-      setSuccess("logged in successfully")
-
+      
     })
+    setSuccess("logged in successfully")
     
-    .then((error) =>{
+    .catch((error) =>{
       console.log(error.message)
     })
   }
 
+  const handleGit = () =>{
+    loginGit()
+    .then(result => {
+      const loggedUser = result.user;
+    })
+    setSuccess('login successfully')
+
+    .catch((error) => {
+      console.log(error.message)
+    })
+  }
+
+  
 
 
 
@@ -91,8 +104,12 @@ const Login = () => {
         New here? Please <Link to="/register">  Register</Link>
         </p>
           <Button  onClick={handleGoogle} variant="success">Login with Google</Button>
-          <Button className='ms-2' variant="secondary">Login with Github</Button>
-          <p className='text-success'>{success}</p>
+          <Button  className='ms-2' onClick={handleGit} variant="secondary" >Login with Github</Button>
+          {
+            user ? <p className='text-success'>{success}</p> : ""
+
+          }
+          
       </Form>
     </Container>
   );
