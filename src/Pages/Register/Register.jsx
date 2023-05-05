@@ -5,6 +5,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 
 const Register = () => {
     const [error, setError] = useState("")
+    
 
     const {createUser} = useContext(AuthContext)
 
@@ -16,7 +17,10 @@ const Register = () => {
         const password = form.password.value;
         const confirm = form.confirmPassword.value;
         const photo = form.photo.value;
-        console.log(email, password, confirm)
+        const name = form.name.value;
+
+        console.log(name,photo)
+        
 
         setError('')
 
@@ -34,11 +38,14 @@ const Register = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
             
+            
         })
         .catch((error) =>{
             console.log(error);
             setError(error.message);
         })
+
+        
 
 
 
@@ -57,6 +64,7 @@ const Register = () => {
                         name="name"
                         className="form-control"
                         placeholder="Name"
+                        
 
                     />
                 </div>

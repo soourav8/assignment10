@@ -9,6 +9,8 @@ const AuthProviders = ({children}) => {
     const [user, setUser] = useState(null)
     const provider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+
+    
     
 
     const createUser = (email, password) =>{
@@ -28,11 +30,12 @@ const AuthProviders = ({children}) => {
         return signInWithPopup(auth, provider)
         
     }
-
     const loginGit = () =>{
         return signInWithPopup(auth, githubProvider)
     }
 
+   
+  
     
 
     useEffect( ()=>{
@@ -54,6 +57,8 @@ const AuthProviders = ({children}) => {
         logOut,
         loginGoogle,
         loginGit,
+        
+        
 
     }
     return (

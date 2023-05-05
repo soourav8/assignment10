@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import Home from "../Pages/Home/Home/Home";
 import Register from "../Pages/Register/Register";
 import Chef from "../Pages/Chef/Chef";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 
 
@@ -24,7 +25,7 @@ import Chef from "../Pages/Chef/Chef";
         },
         {
           path: '/chef/:id',
-          element: <Chef></Chef>,
+          element: <PrivetRoute><Chef></Chef></PrivetRoute> ,
          
           
         },
