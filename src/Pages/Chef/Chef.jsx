@@ -16,7 +16,7 @@ const Chef = () => {
 
     const { id } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/${id}`)
+        fetch(`https://b7a10-chef-recipe-hunter-server-side-soourav8-soourav8.vercel.app/${id}`)
             .then(res => res.json())
             .then(data => setChefData(data));
 

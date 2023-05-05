@@ -14,7 +14,7 @@ const Home = () => {
     const [chefs, setChefs] = useState([])
     const [loader, setLoader] = useState(false)
     useEffect(() => {
-        fetch("http://localhost:5000/")
+        fetch("https://b7a10-chef-recipe-hunter-server-side-soourav8-soourav8.vercel.app/")
             .then(res => res.json())
             .then(data => setChefs(data))
             setLoader(true);
@@ -44,10 +44,12 @@ const Home = () => {
                         </div>
 
 
+                        <div>
                         {<Link to = {`/chef/${chef.id}`}>
                         <Button variant="primary">View Recipes</Button>
 
                         </Link>}
+                        </div>
                         
                     </div>
                 </Card.Body>
@@ -57,7 +59,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <>
             <Header></Header>
             
 
@@ -85,7 +87,7 @@ const Home = () => {
             <NewFood></NewFood>
 
 
-        </div>
+        </>
     );
 };
 
