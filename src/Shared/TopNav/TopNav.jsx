@@ -44,7 +44,7 @@ const TopNav = () => {
                 user ? 
                 <>
                 
-                    Welcome {user.email} <img src=''/> <button className='btn btn-secondary' onClick={handleLogout}> Log out</button>
+                    <p className='fw-bold me-3 mt-2'>Welcome</p>    <img style={{width: "3rem" , height: "3rem", borderRadius:"50%",}} src={user.photoURL}/> <button className='ms-2 btn btn-secondary' onClick={handleLogout}> Log out</button>
                 
                 </> : 
 <>

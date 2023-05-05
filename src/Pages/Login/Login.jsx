@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
-import { Container, Form } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext)
+  const {signIn, loginGoogle} = useContext(AuthContext)
+  const [success, setSuccess] = useState();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -27,6 +28,22 @@ const Login = () => {
 
     })
   }
+
+  const handleGoogle = () =>{
+    loginGoogle()
+    .then((result)=>{
+      const loggedUser  = result.user;
+      console.log(loggedUser)
+      setSuccess("logged in successfully")
+
+    })
+    
+    .then((error) =>{
+      console.log(error.message)
+    })
+  }
+
+
 
 
 
@@ -67,12 +84,15 @@ const Login = () => {
         </div>
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
-            Submit
+            Login
           </button>
         </div>
         <p className="forgot-password text-right">
         New here? Please <Link to="/register">  Register</Link>
         </p>
+          <Button  onClick={handleGoogle} variant="success">Login with Google</Button>
+          <Button className='ms-2' variant="secondary">Login with Github</Button>
+          <p className='text-success'>{success}</p>
       </Form>
     </Container>
   );

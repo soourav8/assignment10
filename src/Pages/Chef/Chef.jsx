@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, CardGroup, Container } from 'react-bootstrap';
-
 import { FcLike } from "react-icons/fc";
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 
 const Chef = () => {
@@ -67,6 +68,7 @@ const Chef = () => {
 
             </Container>
             <div>
+                    <p className='text-center fs-2 fw-bold mb-3'>Most Popular Recipes</p>
             <CardGroup>
                 
                 <Card>
@@ -91,8 +93,14 @@ const Chef = () => {
                             <p><small>{chefData.method}</small></p>
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
+                    <Card.Footer className='d-flex justify-content-between align-items-center'>
+                        <div>
+                        <Rating style={{ maxWidth: 90 }} value={Math.round(chefData.ratings)}  readOnly />
+                        </div>
+                        <div>
+
                         <small className="text-muted">  <Button variant="light" onClick={handleToast1}>{isVisible1 ? <FcLike/> : "" }</Button></small>
+                        </div>
                     </Card.Footer>
                 </Card>
                 <Card>
@@ -117,8 +125,14 @@ const Chef = () => {
                         <p><small>{chefData.method}</small></p>
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
+                    <Card.Footer className='d-flex justify-content-between align-items-center'>
+                        <div>
+                        <Rating style={{ maxWidth: 90 }} value={Math.round(chefData.ratings)}  readOnly />
+                        </div>
+                        <div>
+
                         <small className="text-muted">  <Button variant="light" onClick={handleToast2}>{isVisible2 ? <FcLike/> : "" }</Button></small>
+                        </div>
                     </Card.Footer>
                 </Card>
                 <Card>
@@ -143,11 +157,17 @@ const Chef = () => {
                         <p><small>{chefData.method}</small></p>
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
+                    <Card.Footer className='d-flex justify-content-between align-items-center'>
+                        <div>
+                        <Rating style={{ maxWidth: 90 }} value={Math.round(chefData.ratings)}  readOnly />
+                        </div>
+                        <div>
+
                         <small className="text-muted">
                              <Button variant="light" onClick={handleToast3}>{isVisible3 ? <FcLike/> : "" }</Button>
                              </small>
                         <ToastContainer position="top-center" theme="dark"/>
+                        </div>
                     </Card.Footer>
                 </Card>
             </CardGroup>
