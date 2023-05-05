@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Header from '../../../Shared/Header/Header';
 
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { FcLike } from "react-icons/fc";
 import OurServices from '../OurServiecs/OurServices';
 import NewFood from '../NewFood/NewFood';
@@ -12,15 +12,24 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [chefs, setChefs] = useState([])
+    const [loader, setLoader] = useState(false)
     useEffect(() => {
-        fetch("http://localhost:5000/")
+        fetch("https://b7a10-chef-recipe-hunter-server-side-soourav8.vercel.app/")
             .then(res => res.json())
             .then(data => setChefs(data))
+            setLoader(true);
+            setTimeout(() => {
+                setLoader(false)
+
+            }, 2000)
     }, [])
+    
+    
 
+   
+    
 
-
-    const gridItems = chefs.map(chef => (
+   const gridItems = chefs.map(chef => (
         <Col className=' mb-5' lg={4} sm={12} key={chef.id}>
             <Card className='m-2' style={{ width: '26rem' }}>
                 <Card.Img style={{ with: "25rem", height: "25rem" }} variant="top" src={chef.picture} />
@@ -50,20 +59,29 @@ const Home = () => {
     return (
         <div>
             <Header></Header>
+            
 
-            <OurServices></OurServices>
 
             <Container>
 
 
+            
 
 
-                <Row>
-                    <h2 style={{ color: "#146C94", fontWeight: "700", textAlign: "center", marginTop: '5rem', marginBottom: "1rem" }} >Our chefs</h2>
-                    {gridItems}
-                </Row>
+
+
+
+              {
+                
+
+                loader ? <p className='text-center mt-2'><Spinner animation="border" variant="info" /></p> : <Row>
+                <h2 style={{ color: "#146C94", fontWeight: "700", textAlign: "center", marginTop: '5rem', marginBottom: "1rem" }} >Our chefs</h2>
+                {gridItems}
+            </Row>
+              }  
             </Container>
 
+            <OurServices></OurServices>
             <NewFood></NewFood>
 
 

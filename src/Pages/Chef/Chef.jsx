@@ -6,11 +6,13 @@ import { useParams } from 'react-router-dom';
 
 const Chef = () => {
     const [chefData, setChefData] = useState({})
+    
     const { id } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/${id}`)
+        fetch(`https://b7a10-chef-recipe-hunter-server-side-soourav8.vercel.app/${id}`)
             .then(res => res.json())
             .then(data => setChefData(data));
+            
     }, [])
 
 
@@ -18,7 +20,7 @@ const Chef = () => {
         <Container className='d-flex border border-secondary border-2 p-5 '>
 
             <div>
-                <img src={chefData.picture} alt="" />
+                <img style={{width:"30rem"}} src={chefData.picture} alt="" />
             </div>
             <div className='p-4'>
                 <p>Name: {chefData.name}</p>
