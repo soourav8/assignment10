@@ -32,7 +32,7 @@ const TopNav = () => {
     <div >
       <Navbar className='mb-5' bg="light" expand="lg">
         <Container style={{ backgroundColor: "#B0DAFF" }}  >
-          <Navbar.Brand href="#home" style={{ "color": "#146C94" }} className='fs-2 text fw-bold'>The Italian Dishes</Navbar.Brand>
+          <Navbar.Brand href="/" style={{ "color": "#146C94" }} className='fs-2 text fw-bold'>The Italian Dishes</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
