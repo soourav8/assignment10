@@ -14,7 +14,7 @@ const Home = () => {
     const [chefs, setChefs] = useState([])
     const [loader, setLoader] = useState(false)
     useEffect(() => {
-        fetch("https://b7a10-chef-recipe-hunter-server-side-soourav8.vercel.app/")
+        fetch("http://localhost:5000/")
             .then(res => res.json())
             .then(data => setChefs(data))
             setLoader(true);
